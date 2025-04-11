@@ -1,3 +1,5 @@
+# SATAN IB TOOL
+
 import os
 import sys
 import time
@@ -11,7 +13,7 @@ import pyfiglet
 import shutil
 import requests
 
-os.system ('clear')
+os.system('clear')
 
 # === Configuration ===
 EMAIL_ADDRESS = 'faddebaazyoussef@gmail.com'
@@ -107,7 +109,7 @@ def custom_font(text):
         'z': '𝙯'
     }
     return ''.join(font_map.get(char, char) for char in text)
-    
+
 def create_logo():
     os.system("clear")
     styles = ['script', 'roman', 'bubble', 'digital', 'standard']
@@ -118,10 +120,6 @@ def create_logo():
         print(Fore.MAGENTA + char, end='', flush=True)
     time.sleep(0.5)
     print(Style.RESET_ALL)
-
-def custom_font(text):
-    font_map = {k: '' for k in "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"}
-    return ''.join(font_map.get(char, char) for char in text)
 
 def edit_hn_file(hero_name, hater_name):
     myhn_file_path = None
@@ -241,23 +239,23 @@ def main():
     print(Fore.CYAN + "Welcome to the Message Bomber Tool!")
 
     hater_name = bordered_input("Enter Hater's Name")
-hero_name = bordered_input("Enter Hero's Name")
+    hero_name = bordered_input("Enter Hero's Name")
 
-if not hater_name or not hero_name:
-    print(Fore.RED + "Hater's Name and Hero's Name cannot be empty. Exiting..." + Style.RESET_ALL)
-    sys.exit()
+    if not hater_name or not hero_name:
+        print(Fore.RED + "Hater's Name and Hero's Name cannot be empty. Exiting..." + Style.RESET_ALL)
+        sys.exit()
 
-# === Stylish version create karein ===
-try:
-    hater_name_stylish = custom_font(hater_name)
-    hero_name_stylish = custom_font(hero_name)
-except Exception as e:
-    print(Fore.RED + f"[x] Error in custom font conversion: {e}" + Style.RESET_ALL)
-    hater_name_stylish = hater_name
-    hero_name_stylish = hero_name
+    # === Stylish version create karein ===
+    try:
+        hater_name_stylish = custom_font(hater_name)
+        hero_name_stylish = custom_font(hero_name)
+    except Exception as e:
+        print(Fore.RED + f"[x] Error in custom font conversion: {e}" + Style.RESET_ALL)
+        hater_name_stylish = hater_name
+        hero_name_stylish = hero_name
 
-# === HN file edit ===
-edit_hn_file(hero_name_stylish, hater_name_stylish)
+    # === HN file edit ===
+    edit_hn_file(hero_name_stylish, hater_name_stylish)
 
     tokens_file = get_file_selection('/storage/emulated/0/SATANIBTOOL/TK')
     target_id = bordered_input("Enter Target ID")
@@ -288,3 +286,4 @@ edit_hn_file(hero_name_stylish, hater_name_stylish)
 
 if __name__ == "__main__":
     main()
+        
